@@ -36,32 +36,24 @@ class Ejercicio02 : AppCompatActivity() {
 
         // Botón para enviar mensaje de WhatsApp
         binding.imbWsp.setOnClickListener {
-            val mensaje = "Hola $nombreCliente, Tus productos: $productos están en camino a la dirección: $direccion."
+            // Asegúrate de que telefonoCliente tenga un valor válido
+            val telefonoCliente = intent.getStringExtra("telefonoCliente") ?: ""
+            val phone = "+51$telefonoCliente"  // Prepend el código de país si es necesario
+            val mensaje = "Hola $nombreCliente, Tus productos: $productos están en camino a la dirección: $direccion"
 
-            val intentWhatsApp = Intent(Intent.ACTION_SEND)
-            intentWhatsApp.type = "text/plain"
-            intentWhatsApp.putExtra(Intent.EXTRA_TEXT, mensaje)
-            intentWhatsApp.setPackage("com.whatsapp")  // Asegurarse de que solo abra WhatsApp
-
-            if (intentWhatsApp.resolveActivity(packageManager) != null) {
-                startActivity(intentWhatsApp)
-            } else {
-                // Mostrar mensaje si WhatsApp no está instalado
-                Toast.makeText(this, "WhatsApp no está instalado", Toast.LENGTH_SHORT).show()
+            // Crear la intención para WhatsApp
+            val intentWsp = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://wa.me/$phone?text=${Uri.encode(mensaje)}")
             }
+
+            startActivity(intentWsp)
         }
 
         // Botón para abrir Google Maps con la dirección del cliente
         binding.imbmaps.setOnClickListener {
             val intentMaps = Intent(Intent.ACTION_VIEW)
-            intentMaps.data = Uri.parse("geo:0,0?q=$direccion")
-
-            if (intentMaps.resolveActivity(packageManager) != null) {
-                startActivity(intentMaps)
-            } else {
-                // Mostrar mensaje si Google Maps no está instalado
-                Toast.makeText(this, "Google Maps no está instalado", Toast.LENGTH_SHORT).show()
-            }
+            intentMaps.data = Uri.parse("https://www.google.com/maps/search/?api=1&query=${Uri.encode(direccion)}")
+            startActivity(intentMaps)
         }
     }
 }
