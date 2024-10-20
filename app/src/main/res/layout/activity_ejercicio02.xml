@@ -1,0 +1,135 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ejercicio02">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Pedido"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreClienteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="160dp"
+        android:text="Nombre del Cliente:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/nombreClienteText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        app:layout_constraintTop_toTopOf="@id/nombreClienteLabel"
+        app:layout_constraintStart_toEndOf="@id/nombreClienteLabel"
+        android:layout_marginStart="8dp"/>
+
+
+    <TextView
+        android:id="@+id/telefonoClienteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="216dp"
+        android:text="Numero Cliente:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/telefonoClienteText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        app:layout_constraintTop_toTopOf="@id/telefonoClienteLabel"
+        app:layout_constraintStart_toEndOf="@id/telefonoClienteLabel"
+        android:layout_marginStart="8dp"/>
+
+
+    <TextView
+        android:id="@+id/productosLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="32dp"
+        android:text="Productos:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/telefonoClienteLabel" />
+
+    <TextView
+        android:id="@+id/productosText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        app:layout_constraintTop_toTopOf="@id/productosLabel"
+        app:layout_constraintStart_toEndOf="@id/productosLabel"
+        android:layout_marginStart="8dp"/>
+
+    <TextView
+        android:id="@+id/direccionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="40dp"
+        android:text="Dirección:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productosLabel" />
+    <TextView
+        android:id="@+id/direccionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        app:layout_constraintTop_toTopOf="@id/direccionLabel"
+        app:layout_constraintStart_toEndOf="@id/direccionLabel"
+        android:layout_marginStart="8dp"/>
+
+    <LinearLayout
+    android:layout_marginBottom="16dp"
+    android:weightSum="3"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+    <ImageButton
+            android:id="@+id/imbTelefono"
+            android:src="@drawable/ic_telefono"
+            android:background="@null"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/imbWsp"
+        android:src="@drawable/ic_wsp"
+        android:background="@null"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:scaleType="fitCenter"
+        android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/imbmaps"
+        android:src="@drawable/ic_maps"
+        android:background="@null"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:scaleType="fitCenter"
+        android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
